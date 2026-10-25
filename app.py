@@ -2,7 +2,7 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-SAMPLE_TEXT = "Good typing is built through steady practice and careful attention. Focus on each word, keep a comfortable rhythm, and let accuracy guide your speed. Small improvements made every day can lead to confident and efficient typing."
+SAMPLE_TEXT = "Good typing is built through steady practice and careful attention. Focus on each word, keep a comfortable rhythm, and let accuracy guide your speed. Small improvements made every day can lead to confident and efficient typing.Go and Prastic daily"
 
 @app.route('/')
 def index():
