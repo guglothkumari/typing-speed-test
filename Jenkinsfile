@@ -2,15 +2,10 @@ pipeline {
     agent any
     environment {
         DOCKERHUB_CREDENTIALS = 'dockerhub-credentials-id'
-        IMAGE_NAME = 'your-dockerhub-username/typing-speed-test'
+        IMAGE_NAME = 'guglothkumari/typing-speed-test'
         IMAGE_TAG = "${env.BUILD_NUMBER}"
     }
     stages {
-        stage('Checkout Code') {
-            steps {
-                git branch: 'main', url: 'https://github.com/your-username/typing-speed-test.git'
-            }
-        }
         stage('Build Docker Image') {
             steps {
                 script {
