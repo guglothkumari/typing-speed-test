@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: typing-speed-test-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: typing-speed-test
+  template:
+    metadata:
+      labels:
+        app: typing-speed-test
+    spec:
+      containers:
+      - name: typing-speed-test
+        image: your-dockerhub-username/typing-speed-test:latest
+        ports:
+        - containerPort: 5000
+        imagePullPolicy: Always

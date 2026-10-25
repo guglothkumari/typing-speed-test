@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Typing Speed Test - Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f9; text-align: center; padding-top: 50px; }
+        .container { background: white; padding: 30px; border-radius: 8px; display: inline-block; width: 600px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: left; }
+        .text-box { background: #e9ecef; padding: 15px; border-radius: 5px; font-size: 18px; margin-bottom: 20px; line-height: 1.5; }
+        textarea { width: 100%; height: 100px; font-size: 16px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; }
+        button { background: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-top: 15px; display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Typing Speed Test</h2>
+        <p>Type the text below as fast and accurately as you can. Timer starts when you begin typing!</p>
+        <div class="text-box" id="sample-text">{{ sample_text }}</div>
+        
+        <form id="testForm" action="/result" method="POST">
+            <textarea id="userInput" placeholder="Start typing here..." autofocus></textarea>
+            <input type="hidden" name="wpm" id="wpmField">
+            <input type="hidden" name="accuracy" id="accuracyField">
+            <input type="hidden" name="errors" id="errorsField">
+            <button type="submit" id="submitBtn">Submit Results</button>
+        </form>
+        <p id="timer">Time Remaining: <span id="time">30</span>s</p>
+    </div>
+
+    <script>
+        const sampleText = document.getElementById('sample-text').innerText;
+        const userInput = document.getElementById('userInput');
+        const timeSpan = document.getElementById('time');
+        const testForm = document.getElementById('testForm');
+        
+        let timeLeft = 30;
+        let timerStarted = false;
+        let timer;
+
+        userInput.addEventListener('input', () => {
+            if (!timerStarted) {
+                timerStarted = true;
+                timer = setInterval(() => {
+                    timeLeft--;
+                    timeSpan.innerText = timeLeft;
+                    if (timeLeft <= 0) {
+                        clearInterval(timer);
+                        userInput.disabled = true;
+                        calculateResults();
+                    }
+                }, 1000);
+            }
+
+            if (userInput.value === sampleText) {
+                clearInterval(timer);
+                calculateResults();
+            }
+        });
+
+        function calculateResults() {
+            const typed = userInput.value;
+            const wordsTyped = typed.trim().split(/\s+/).length;
+            const timeSpentMinutes = (30 - timeLeft) / 60 || 0.5;
+            const wpm = Math.round(wordsTyped / timeSpentMinutes);
+
+            let errors = 0;
+            for (let i = 0; i < typed.length; i++) {
+                if (typed[i] !== sampleText[i]) errors++;
+            }
+            const accuracy = Math.max(0, Math.round(((sampleText.length - errors) / sampleText.length) * 100));
+
+            document.getElementById('wpmField').value = wpm;
+            document.getElementById('accuracyField').value = accuracy;
+            document.getElementById('errorsField').value = errors;
+
+            testForm.submit();
+        }
+    </script>
+</body>
+</html>

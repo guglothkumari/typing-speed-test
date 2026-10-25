@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Typing Speed Test - Results</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f9; text-align: center; padding-top: 80px; }
+        .container { background: white; padding: 40px; border-radius: 8px; display: inline-block; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 400px; }
+        .stat { font-size: 18px; margin: 15px 0; }
+        a { background: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px; }
+        a:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Performance Summary</h2>
+        <div class="stat"><strong>WPM:</strong> {{ wpm }}</div>
+        <div class="stat"><strong>Accuracy:</strong> {{ accuracy }}%</div>
+        <div class="stat"><strong>Errors:</strong> {{ errors }}</div>
+        <a href="/test">Try Again</a> | <a href="/">Home</a>
+    </div>
+</body>
+</html>
