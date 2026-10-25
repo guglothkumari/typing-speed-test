@@ -2,22 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Typing Speed Test - Results</title>
+    <title>TypeSprint - Results & Tips</title>
     <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f9; text-align: center; padding-top: 80px; }
-        .container { background: white; padding: 40px; border-radius: 8px; display: inline-block; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 400px; }
-        .stat { font-size: 18px; margin: 15px 0; }
-        a { background: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px; }
-        a:hover { background: #0056b3; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #fbfbfd; color: #1d1d1f; margin: 0; padding: 0; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 25px 80px; max-width: 1200px; margin: 0 auto; }
+        .logo { font-weight: 700; font-size: 20px; letter-spacing: -0.5px; }
+        nav a { margin-left: 25px; text-decoration: none; color: #6e6e73; font-size: 14px; }
+        nav a:hover { color: #1d1d1f; }
+        
+        .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        h1 { font-size: 36px; font-weight: 800; letter-spacing: -1px; margin-bottom: 10px; }
+        p.sub { color: #6e6e73; font-size: 16px; margin-bottom: 40px; }
+        
+        .tip-card { background: white; border: 1px solid #e5e5ea; border-radius: 14px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+        .tip-card h3 { margin: 0 0 10px 0; font-size: 18px; color: #1b4332; }
+        .tip-card p { margin: 0; color: #6e6e73; font-size: 14px; line-height: 1.5; }
+        
+        .back-link { display: inline-block; margin-top: 20px; color: #2d6a4f; text-decoration: none; font-weight: 600; }
+        .back-link:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
+
+    <header>
+        <div class="logo">TypeSprint</div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/test">Typing Test</a>
+            <a href="/results" style="color: #111; font-weight: 600;">Results & Tips</a>
+        </nav>
+    </header>
+
     <div class="container">
-        <h2>Performance Summary</h2>
-        <div class="stat"><strong>WPM:</strong> {{ wpm }}</div>
-        <div class="stat"><strong>Accuracy:</strong> {{ accuracy }}%</div>
-        <div class="stat"><strong>Errors:</strong> {{ errors }}</div>
-        <a href="/test">Try Again</a> | <a href="/">Home</a>
+        <h1>Typing Insights & Pro Tips</h1>
+        <p class="sub">Improve your muscle memory and accelerate your words per minute with these foundational guidelines.</p>
+
+        <div class="tip-card">
+            <h3>1. Focus on Accuracy First</h3>
+            <p>Speed is a natural byproduct of clean technique. If you hit keys accurately without looking down at your keyboard, your speed will naturally increase over time.</p>
+        </div>
+
+        <div class="tip-card">
+            <h3>2. Maintain Home Row Posture</h3>
+            <p>Keep your fingers resting on the home row keys (ASDF for the left hand, JKL; for the right hand). This minimizes finger travel distance across the keyboard.</p>
+        </div>
+
+        <div class="tip-card">
+            <h3>3. Practice Daily in Short Bursts</h3>
+            <p>Consistent 5-to-10 minute daily practice sessions build long-term neuromuscular pathways much faster than infrequent, long marathons.</p>
+        </div>
+
+        <a href="/test" class="back-link">&larr; Return to Typing Test</a>
     </div>
+
 </body>
 </html>

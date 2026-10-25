@@ -1,13 +1,8 @@
-import random
-from flask import Flask, render_template, request
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-SAMPLE_TEXTS = [
-    "The quick brown fox jumps over the lazy dog to test the typing speed and keyboard responsiveness.",
-    "DevOps practices combine software development and IT operations to shorten the systems development life cycle.",
-    "Containerization using Docker ensures that applications run reliably across different computing environments."
-]
+SAMPLE_TEXT = "Good typing is built through steady practice and careful attention. Focus on each word, keep a comfortable rhythm, and let accuracy guide your speed. Small improvements made every day can lead to confident and efficient typing."
 
 @app.route('/')
 def index():
@@ -15,15 +10,11 @@ def index():
 
 @app.route('/test')
 def test_page():
-    text = random.choice(SAMPLE_TEXTS)
-    return render_template('test.html', sample_text=text)
+    return render_template('test.html', sample_text=SAMPLE_TEXT)
 
-@app.route('/result', methods=['POST'])
-def result():
-    wpm = request.form.get('wpm', 0)
-    accuracy = request.form.get('accuracy', 0)
-    errors = request.form.get('errors', 0)
-    return render_template('result.html', wpm=wpm, accuracy=accuracy, errors=errors)
+@app.route('/results')
+def results_page():
+    return render_template('results.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

@@ -2,20 +2,109 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Typing Speed Test - Home</title>
+    <title>TypeSprint - Home</title>
     <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f9; text-align: center; padding-top: 100px; }
-        .container { background: white; padding: 40px; border-radius: 8px; display: inline-block; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        a { background: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; }
-        a:hover { background: #0056b3; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #fbfbfd; color: #1d1d1f; margin: 0; padding: 0; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 25px 80px; max-width: 1200px; margin: 0 auto; }
+        .logo { font-weight: 700; font-size: 20px; letter-spacing: -0.5px; }
+        nav a { margin-left: 25px; text-decoration: none; color: #6e6e73; font-size: 14px; }
+        nav a:hover { color: #1d1d1f; }
+        .hero { display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 60px auto; padding: 0 20px; }
+        .hero-content { max-width: 550px; }
+        .badge { font-size: 12px; font-weight: 600; color: #1b4332; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; display: block; }
+        h1 { font-size: 52px; line-height: 1.1; font-weight: 800; letter-spacing: -1.5px; margin-bottom: 20px; color: #111; }
+        h1 span { color: #2d6a4f; }
+        p.subtitle { font-size: 16px; color: #6e6e73; line-height: 1.5; margin-bottom: 30px; }
+        .cta-btn { display: inline-block; background: #1b4332; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px; transition: background 0.2s; }
+        .cta-btn:hover { background: #2d6a4f; }
+        .features-row { display: flex; gap: 30px; margin-top: 40px; font-size: 13px; color: #86868b; }
+        .features-row strong { display: block; color: #1d1d1f; font-size: 15px; margin-bottom: 2px; }
+        
+        /* Preview Card */
+        .preview-card { background: white; border: 1px solid #e5e5ea; border-radius: 16px; padding: 30px; width: 340px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); }
+        .preview-card small { font-size: 11px; text-transform: uppercase; color: #86868b; font-weight: 600; letter-spacing: 0.5px; }
+        .preview-card .score { font-size: 44px; font-weight: 800; color: #1b4332; margin: 10px 0 5px 0; }
+        .preview-card .desc { font-size: 13px; color: #6e6e73; margin-bottom: 25px; }
+        .bars { display: flex; align-items: flex-end; gap: 8px; height: 60px; }
+        .bar { flex: 1; background: #d8f3dc; border-radius: 4px; }
+        .bar.active { background: #2d6a4f; }
+
+        /* How it works */
+        .how-section { max-width: 1100px; margin: 100px auto 60px auto; padding: 0 20px; text-align: center; }
+        .how-title { font-size: 24px; font-weight: 700; margin-bottom: 40px; }
+        .steps-grid { display: flex; gap: 20px; justify-content: center; }
+        .step-box { background: white; border: 1px solid #e5e5ea; border-radius: 12px; padding: 25px; text-align: left; width: 320px; }
+        .step-num { display: inline-block; background: #e8f5e9; color: #2d6a4f; font-weight: 700; font-size: 12px; padding: 4px 8px; border-radius: 6px; margin-bottom: 15px; }
+        .step-box h3 { font-size: 16px; margin: 0 0 8px 0; }
+        .step-box p { font-size: 13px; color: #6e6e73; margin: 0; }
+        footer { text-align: center; font-size: 12px; color: #86868b; padding: 40px 0; border-top: 1px solid #eee; margin-top: 60px; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to Typing Speed Test</h1>
-        <p>Test your typing speed (WPM) and accuracy in real-time!</p>
-        <br>
-        <a href="/test">Start Typing Test</a>
+
+    <header>
+        <div class="logo">TypeSprint</div>
+        <nav>
+            <a href="/" style="color: #111; font-weight: 600;">Home</a>
+            <a href="/test">Typing Test</a>
+            <a href="/results">Results & Tips</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <span class="badge">Practice · Improve · Repeat</span>
+            <h1>Every keystroke<br><span>makes you faster.</span></h1>
+            <p class="subtitle">Improve your typing speed and accuracy with a friendly 60-second test. No account or database required.</p>
+            <a href="/test" class="cta-btn">Start typing test &rarr;</a>
+            
+            <div class="features-row">
+                <div><strong>60 sec</strong> Test timer</div>
+                <div><strong>Live</strong> Accuracy feedback</div>
+                <div><strong>Free</strong> Practice anytime</div>
+            </div>
+        </div>
+
+        <div class="preview-card">
+            <small>Your Next Personal Best</small>
+            <div class="score">72 <span style="font-size: 18px; font-weight: 500; color: #6e6e73;">WPM</span></div>
+            <div class="desc">A sample score to inspire your next session.</div>
+            <div class="bars">
+                <div class="bar" style="height: 40%;"></div>
+                <div class="bar active" style="height: 70%;"></div>
+                <div class="bar" style="height: 50%;"></div>
+                <div class="bar" style="height: 65%;"></div>
+                <div class="bar" style="height: 90%;"></div>
+                <div class="bar active" style="height: 100%;"></div>
+            </div>
+        </div>
     </div>
+
+    <div class="how-section">
+        <div style="font-size: 11px; text-transform: uppercase; color: #86868b; font-weight: 600; letter-spacing: 1px; margin-bottom: 8px;">How It Works</div>
+        <div class="how-title">Three steps to better typing</div>
+        <div class="steps-grid">
+            <div class="step-box">
+                <span class="step-num">01</span>
+                <h3>Choose a passage</h3>
+                <p>Read the sample text and get ready.</p>
+            </div>
+            <div class="step-box">
+                <span class="step-num">02</span>
+                <h3>Type for 60 seconds</h3>
+                <p>Type naturally while the timer runs.</p>
+            </div>
+            <div class="step-box">
+                <span class="step-num">03</span>
+                <h3>Review your score</h3>
+                <p>See your WPM, accuracy, and mistakes.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        TypeSprint · A lightweight typing practice project
+    </footer>
+
 </body>
 </html>
