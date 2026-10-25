@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: typing-speed-test
-        image: your-dockerhub-username/typing-speed-test:latest
+        image: guglothkumari/typing-speed-test:latest  
         ports:
         - containerPort: 5000
         imagePullPolicy: Always
