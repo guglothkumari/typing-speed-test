@@ -9,8 +9,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    // Builds the image and tags it
-                    app = docker.build("${IMAGE_NAME}:${IMAGE_TAG}")
+                    def app = docker.build("${IMAGE_NAME}:${IMAGE_TAG}")
                     app.tag("latest")
                 }
             }
@@ -19,8 +18,10 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://index.docker.io/v1/', "${DOCKERHUB_CREDENTIALS}") {
+                        // Re-instantiate or reference the app image for pushing
+                        def app = docker.image("${IMAGE_NAME}:${IMAGE_TAG}")
                         app.push("${IMAGE_TAG}")
-                        app.push("latest")
+                        docker.image("${IMAGE_NAME}:latest").push("latest")
                     }
                 }
             }
