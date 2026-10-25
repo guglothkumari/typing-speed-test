@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>TypeSprint - Typing Test</title>
+    <title>GK SpeedTest - Typing Test</title>
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #fbfbfd; color: #1d1d1f; margin: 0; padding: 0; }
         header { display: flex; justify-content: space-between; align-items: center; padding: 25px 80px; max-width: 1200px; margin: 0 auto; }
@@ -31,12 +31,9 @@
         .restart-btn { background: #f2f2f7; color: #1d1d1f; border: none; padding: 8px 16px; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 13px; transition: background 0.2s; }
         .restart-btn:hover { background: #e5e5ea; }
 
-        /* Character coloring classes */
         .correct { color: #2d6a4f; background: #e8f5e9; }
         .incorrect { color: #d90429; background: #ffe5ec; text-decoration: underline; }
-        .current { border-left: 2px solid #2d6a4f; animation: blink 1s infinite; }
 
-        /* Summary Box */
         .summary-box { display: none; background: #e8f5e9; border: 1px solid #c7e9cb; border-radius: 12px; padding: 20px; margin-top: 20px; text-align: left; }
         .summary-box h3 { margin: 0 0 8px 0; color: #1b4332; font-size: 18px; }
         .summary-box p { margin: 0 0 15px 0; font-size: 14px; color: #2d6a4f; }
@@ -48,7 +45,7 @@
 <body>
 
     <header>
-        <div class="logo">TypeSprint</div>
+        <div class="logo">GK SpeedTest</div>
         <nav>
             <a href="/">Home</a>
             <a href="/test" style="color: #111; font-weight: 600;">Typing Test</a>
@@ -152,7 +149,6 @@
 
             incorrectChars = errors;
             
-            // Calculate WPM & Accuracy
             const wordsTyped = typedVal.trim().split(/\s+/).filter(Boolean).length;
             const timeSpent = (60 - timeLeft) / 60 || 0.01;
             const currentWpm = Math.round(wordsTyped / timeSpent);
